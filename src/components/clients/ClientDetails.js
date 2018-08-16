@@ -8,8 +8,67 @@ import Spinner from '../layout/Spinner';
 import classnames from 'classnames';
 
 class ClientDetails extends Component {
+    constructor() {
+        super();
+        this.state = {
+            showBalanceUpdate: false,
+            balanceUpdateAmount: ''
+        }
+    }
+
+    onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+    //Update balance
+    balanceSubmit = e => {
+        e.preventDefault();
+
+        const { balanceUpdateAmount } = this.state;
+        const { client, firestore } = this.props; 
+        //what to update for this perticular client
+        const clientUpdate = {
+            balance: parseFloat(balanceUpdateAmount)
+        }
+        //update in firestore
+        firestore.update({ collection: 'clients', doc: client.id}, clientUpdate);
+    }
+
+    //Delete client
+    onDeleteClick = () => {
+        const { client, firestore } = this.props;
+
+        firestore.delete({ collection: 'clients', doc: client.id})
+            .then(this.props.history.push('/'));
+    }
+
     render() {
         const { client } = this.props;
+        const { showBalanceUpdate, balanceUpdateAmount } = this.state;
+        let balanceForm = '';
+
+        //if balance form should display
+        if(showBalanceUpdate) {
+            balanceForm = (
+                <form onSubmit={this.balanceSubmit}>
+                    <div className="input-group">
+                        <input 
+                            type="text" 
+                            className="form-control"
+                            name="balanceUpdateAmount"
+                            placeholder="Add New Balance"
+                            value={balanceUpdateAmount}
+                            onChange={this.onChange}
+                        />
+                        <div className="input-group-append">
+                            <input type="submit" value="Update" className="btn btn-outline-dark"/>
+                        </div>
+                    </div>
+                </form>
+            )
+        }
+        else {
+            balanceForm = null;
+        }
+
         if(client) {
             return (
                 <div>
@@ -25,7 +84,7 @@ class ClientDetails extends Component {
                                     className="btn btn-dark"
                                 > Edit
                                 </Link>
-                                <button className="btn btn-danger">Delete</button>
+                                <button className="btn btn-danger" onClick={this.onDeleteClick}>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -47,16 +106,24 @@ class ClientDetails extends Component {
                                                 'text-success': client.balance === 0
                                             })}
                                         >
-                                        ${parseFloat(client.balance).toFixed(2)}</span>
+                                            ${parseFloat(client.balance).toFixed(2)}
+                                        </span>
+                                        {' '}
+                                        <small>
+                                            <a href="#!" onClick={() => this.setState({ showBalanceUpdate: !showBalanceUpdate })}>
+                                                <i className="fas fa-pencil-alt"></i>
+                                            </a>
+                                        </small>
                                     </h3>
+                                    {balanceForm}
                                 </div>
                             </div>
-                        </div>
                         <hr/>
                         <ul className="list-group">
-                            <li className="list-group-item">Contact Email: {client.email}</li>
-                            <li className="list-group-item">Conatct Phone: {client.phone}</li>
+                            <li className="list-group-item">Contact Email: <span className="text-secondary">{client.email}</span></li>
+                            <li className="list-group-item">Conatct Phone: <span className="text-secondary">{client.phone}</span></li>
                         </ul>
+                        </div>
                     </div>
                 </div>
             )
