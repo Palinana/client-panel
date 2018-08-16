@@ -32,7 +32,7 @@ class AddClient extends Component {
             .then(() => this.props.history.push('/')); //redirect to the main page
     };
 
-    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    onChange = e => this.setState({ [e.target.name]: e.target.value });
 
     render() {
         return (
