@@ -11,8 +11,7 @@ import AddClient from './components/clients/AddClient';
 import EditClient from './components/clients/EditClient';
 import ClientDetails from './components/clients/ClientDetails';
 import Login from './components/auth/Login';
-
-import './App.css';
+import Settings from './components/settings/Settings';
 
 class App extends Component {
   render() {
@@ -28,6 +27,7 @@ class App extends Component {
                 <Route path="/client/edit/:id" component={UserIsAuthenticated(EditClient)}/>
                 <Route path="/client/:id" component={UserIsAuthenticated(ClientDetails)}/>
                 <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
+                <Route path="/settings" component={UserIsAuthenticated(Settings)}/>
               </Switch>
             </div>
           </div>
