@@ -45,7 +45,7 @@ class Register extends Component {
                 <Alert message={message} messageType={messageType} />
               ) : null}
               <h1 className="text-center pb-4 pt-3">
-                <span className="text-primary">
+                <span id="text-primary">
                   <i className="fas fa-lock" /> Register
                 </span>
               </h1>
@@ -75,7 +75,8 @@ class Register extends Component {
                 <input
                   type="submit"
                   value="Register"
-                  className="btn btn-primary btn-block"
+                  className="btn btn-block text-white" 
+                  id="main-btn"
                 />
               </form>
             </div>

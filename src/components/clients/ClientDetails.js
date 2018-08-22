@@ -74,7 +74,7 @@ class ClientDetails extends Component {
                 <div>
                     <div className="row">
                         <div className="col-md-6">
-                            <Link to="/" className="btn btn-link"> 
+                            <Link to="/" className="btn btn-link" id="second"> 
                                 <i className="fas fa-arrow-circle-left" /> Back to Dashboard
                             </Link>
                         </div>
@@ -111,7 +111,7 @@ class ClientDetails extends Component {
                                         {' '}
                                         <small>
                                             <a href="#!" onClick={() => this.setState({ showBalanceUpdate: !showBalanceUpdate })}>
-                                                <i className="fas fa-pencil-alt"></i>
+                                                <i className="fas fa-pencil-alt" id="second"></i>
                                             </a>
                                         </small>
                                     </h3>
