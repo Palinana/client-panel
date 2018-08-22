@@ -46,7 +46,7 @@ class EditClient extends Component {
                 <div>
                     <div className="row">
                         <div className="col-md-6">
-                            <Link to="/" className="btn btn-link"> 
+                            <Link to="/" className="btn btn-link" id="second"> 
                                 <i className="fas fa-arrow-circle-left" /> Back to Dashboard
                             </Link>
                         </div>
@@ -116,7 +116,7 @@ class EditClient extends Component {
                                         disabled={disableBalanceOnEdit}
                                     />
                                 </div>
-                                <input type="submit" value="Edit" className="btn btn-primary btn-block"/>
+                                <input type="submit" value="Edit" className="btn text-white btn-block" id="main-btn"/>
                             </form>
                         </div>
                     </div>

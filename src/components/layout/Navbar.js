@@ -37,7 +37,7 @@ class Navbar extends Component {
         const { allowRegistration } = this.props.settings;
 
         return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+        <nav className="navbar navbar-expand-md navbar-dark mb-4" id="main-color">
             <div className="container">
             <Link to="/" className="navbar-brand">
                 ClientPanel

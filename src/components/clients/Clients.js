@@ -44,7 +44,7 @@ class Clients extends Component {
                         </div>
                         <div className="col-md-6">
                             <h5 className="text-right text-secondary"> Total Owed{' '}
-                                <span className="text-primary">${parseFloat(totalOwed).toFixed(2)}</span>
+                                <span id="second">${parseFloat(totalOwed).toFixed(2)}</span>
                             </h5>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ class Clients extends Component {
                                     </td>
                                     <td>
                                         <Link to={`/client/${client.id}`} 
-                                            className="btn btn-secondary btn-sm"
+                                            className="btn btn-sm text-white" id="details"
                                         >
                                         <i className="fas fa-arrow-circle-right"></i> Details
                                         </Link>

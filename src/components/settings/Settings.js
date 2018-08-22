@@ -31,7 +31,7 @@ class Settings extends Component {
       <div>
         <div className="row">
           <div className="col-md-6">
-            <Link to="/" className="btn btn-link">
+            <Link to="/" className="btn btn-link" id="second">
               <i className="fas fa-arrow-circle-left" /> Back To Dashboard
             </Link>
           </div>
@@ -67,7 +67,7 @@ class Settings extends Component {
                   type="checkbox"
                   name="disableBalanceOnEdit"
                   checked={!!disableBalanceOnEdit}
-                  onChange={this.disableBalanceOnEditChange}
+                  onChange={this.disableBalanceOnEditChange} 
                 />
               </div>
             </form>

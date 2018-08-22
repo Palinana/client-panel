@@ -1,0 +1,28 @@
+body {
+    background-color: #F7F7F7!important;
+}
+
+#main-color {
+    background-color: #1D465D;
+}
+
+#main-btn {
+    background-color: #5F7C8C;
+}
+
+#text-primary {
+    color: #1D465D!important;
+}
+
+#details {
+    background-color: #7c9aa9;
+}
+
+#add-btn {
+    background-color: #6abbb3;
+    border: #6abbb3;
+}
+
+#second {
+    color: #0ba5e4;
+}

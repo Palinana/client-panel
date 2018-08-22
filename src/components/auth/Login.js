@@ -42,7 +42,7 @@ class Login extends Component {
                             <Alert message={message} messageType={messageType} />
                         ) : null}
                         <h1 className="text-center pb-4 pt-3">
-                            <span className="text-primary">
+                            <span id="text-primary">
                                 <i className="fas fa-lock"/> Login
                             </span>
                         </h1>
@@ -69,7 +69,7 @@ class Login extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <input type="submit" value="Login" className="btn btn-primary btn-block"/>
+                            <input type="submit" value="Login" className="btn btn-block text-white" id="main-btn"/>
                         </form>
                     </div>
                 </div>
